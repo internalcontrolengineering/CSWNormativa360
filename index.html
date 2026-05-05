@@ -7112,8 +7112,8 @@ function updateStagnantDocsList(docs) {
         item.innerHTML = `
             <div class="responsible-info">
                 <div class="font-medium text-sm">${doc.codigo}</div>
-                <div class="text-xs text-gray-400 truncate" title="${doc.titulo} (${doc.etapa})">
-                    ${doc.titulo.substring(0, 40)}${doc.titulo.length > 40 ? '...' : ''}
+                <div class="text-xs text-gray-400" title="${doc.titulo} (${doc.etapa})" style="white-space: normal; word-wrap: break-word;">
+                    ${doc.titulo}
                 </div>
             </div>
             <div class="responsible-stats">
