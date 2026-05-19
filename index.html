@@ -7113,8 +7113,8 @@ function updateStagnantDocsList(docs) {
             <div class="responsible-info">
                 <div class="font-medium text-sm">${doc.codigo}</div>
                 <div class="text-xs text-gray-400" title="${doc.titulo} (${doc.etapa})" style="white-space: normal; word-wrap: break-word;">
-                    ${doc.titulo}
-                </div>
+    ${doc.titulo}
+            </div>
             </div>
             <div class="responsible-stats">
                 <div class="text-sm font-semibold ${colorClass}">${doc.dias} días</div>
@@ -7939,7 +7939,21 @@ saveDocs = function() {
   </script>
 
   <div style="text-align:center; font-size:1rem; background: linear-gradient(to right, #22d3ee, #06b6d4); -webkit-background-clip: text; background-clip: text; color: transparent; position:fixed; bottom:0px; width:100%; z-index:101; margin-top:1px; font-family: 'Garamond', serif;">
-    Sistema de Gestión Documental by Pablo Ojeda
+    <div style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <img src="https://raw.githubusercontent.com/internalcontrolengineering/Desarrollos/main/LogoCI-G.png" 
+             alt="Control Interno" 
+             style="height: 22px; width: auto; object-fit: contain; opacity: 0.5;">
+        <div style="width: 1px; height: 24px; background-color: #cbd5e1;"></div>
+        <div style="display: flex; flex-direction: column; line-height: 1.2;">
+            <span style="font-size: 0.5rem; color: #0A2540;">Control Interno</span>
+            <span style="font-size: 0.4rem; color: #94a3b8; font-weight: 500;">Ingeniería de Control</span>
+        </div>
+        <div style="width: 1px; height: 24px; background-color: #cbd5e1;"></div>
+        <div style="display: flex; flex-direction: column; line-height: 1.2;">
+            <span style="font-size: 0.5rem; color: #0A2540;">CSW Normativa 360</span>
+            <span style="font-size: 0.4rem; color: #94a3b8; font-weight: 500;">V1.0 | Mayo 2026</span>
+        </div>
+    </div>
   </div>
 
 </body>
