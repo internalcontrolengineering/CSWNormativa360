@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
 <title>Sistema de Control Interno - Gestión de Documentos Normativos Internos</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -30,6 +30,161 @@ window.supabaseClient = createClient(
 </script>
 
 <style>
+  /* ===== INYECCIÓN DE ESTILOS RESPONSIVOS (SIN MODIFICAR NADA ORIGINAL) ===== */
+  
+  /* Base responsive para móviles - se aplica SOLO a pantallas pequeñas */
+  @media (max-width: 768px) {
+    /* Reset de contenedores flex principales */
+    #documentos-content > .flex {
+      flex-direction: column !important;
+      gap: 1rem !important;
+    }
+    
+    /* Columna de responsables se vuelve ancho completo */
+    #documentos-content .w-72 {
+      width: 100% !important;
+      flex-shrink: 1 !important;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Contenedor de columnas: en lugar de scroll horizontal, se apilan */
+    .columns-container {
+      flex-wrap: wrap !important;
+      gap: 0.75rem !important;
+      overflow-x: visible !important;
+    }
+    
+    /* Cada columna ocupa todo el ancho disponible */
+    .document-col {
+      width: 100% !important;
+      min-width: auto !important;
+      flex: 1 1 100% !important;
+    }
+    
+    /* Ajuste de padding general */
+    body.p-6 {
+      padding: 0.75rem !important;
+    }
+    
+    /* Barra inferior: se organiza en columna y centrada */
+    .bottom-bar {
+      flex-direction: column !important;
+      height: auto !important;
+      min-height: auto !important;
+      padding: 0.75rem !important;
+      gap: 0.75rem !important;
+      position: relative !important;
+      margin-top: 1rem;
+    }
+    
+    /* Stats container se ajusta */
+    .stats-container {
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 0.5rem !important;
+      width: 100%;
+    }
+    
+    /* Botones en barra inferior se distribuyen */
+    .bottom-bar .flex {
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 0.5rem !important;
+    }
+    
+    /* Modales ocupan casi toda la pantalla */
+    #docModal .bg-gray-800 {
+      width: 95% !important;
+      max-width: 95% !important;
+      margin: 0.5rem auto !important;
+      max-height: 90vh !important;
+    }
+    
+    /* Grids internos se vuelven una columna */
+    .grid-cols-2, .grid-cols-3, .grid-cols-5, .grid-cols-dashboard, .grid-cols-charts {
+      grid-template-columns: 1fr !important;
+      gap: 0.75rem !important;
+    }
+    
+    /* Filtros: se envuelven y ocupan todo el ancho */
+    .flex-wrap.items-center.gap-5 {
+      gap: 0.75rem !important;
+    }
+    
+    .flex-wrap.items-center.gap-5 select,
+    .flex-wrap.items-center.gap-5 .multiselect-container,
+    .flex-wrap.items-center.gap-5 button {
+      width: 100% !important;
+      min-width: auto !important;
+      flex: 1 1 auto !important;
+    }
+    
+    /* Tabla de vista detallada: scroll horizontal */
+    .overflow-x-auto {
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    #detailed-docs-table {
+      min-width: 700px;
+    }
+    
+    /* Ajuste de textos y métricas */
+    .metric-value {
+      font-size: 1.75rem !important;
+    }
+    
+    /* Pestañas: scroll horizontal */
+    .excel-tabs {
+      overflow-x: auto !important;
+      white-space: nowrap;
+      flex-wrap: nowrap;
+      gap: 0;
+    }
+    
+    .excel-tab {
+      white-space: nowrap;
+      padding: 0.5rem 1rem;
+    }
+    
+    /* Espaciado para que nada quede tapado */
+    body {
+      padding-bottom: 1rem !important;
+    }
+    
+    /* Ajuste de tooltip en móvil (no moleste) */
+    .tooltip {
+      max-width: 90vw !important;
+      width: auto !important;
+      font-size: 0.7rem;
+    }
+  }
+  
+  /* Ajustes extra para pantallas muy pequeñas (menos de 480px) */
+  @media (max-width: 480px) {
+    .text-4xl {
+      font-size: 1.75rem !important;
+    }
+    
+    .btn {
+      padding: 0.5rem 0.75rem !important;
+      font-size: 0.75rem !important;
+    }
+    
+    .stat-item {
+      font-size: 0.7rem !important;
+    }
+    
+    /* Filtros con texto más pequeño */
+    #filterEstadoBtn, #filterResponsableBtn, .flex-wrap select {
+      font-size: 0.85rem !important;
+      height: auto !important;
+      padding: 0.5rem !important;
+    }
+  }
+  
+  /* FIN DE INYECCIÓN RESPONSIVE - TODAS LAS REGLAS ORIGINALES DEBAJO CONTINÚAN IGUAL */
+  
   :root {
     --primary: #B48C4C;
     --primary-dark: #8B6B3A;
